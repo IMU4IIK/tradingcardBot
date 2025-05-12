@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+  --muted: 60 4.8% 95.9%;
+  --muted-foreground: 25 5.3% 44.7%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+  --border: 20 5.9% 90%;
+  --input: 20 5.9% 90%;
+  --primary: 200 90% 40%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 60 4.8% 95.9%;
+  --secondary-foreground: 24 9.8% 10%;
+  --accent: 60 4.8% 95.9%;
+  --accent-foreground: 24 9.8% 10%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 60 9.1% 97.8%;
+  --ring: 20 14.3% 4.1%;
+  --radius: 0.5rem;
+  
+  /* Telegram specific colors */
+  --telegram-blue: 200 100% 40%;
+  --telegram-light: 203 87% 63.5%;
+  --telegram-bg: 0 0% 96.1%;
+  --telegram-sidebar: 210 25% 18%;
+  --telegram-hover: 204 100% 97.1%;
+  
+  /* Card category colors */
+  --card-pokemon: 24 85% 56.1%;
+  --card-yugioh: 271 50% 50%;
+  --card-tcg: 209 48% 52%;
+  --card-topps: 0 66% 51%;
+  
+  /* Trend colors */
+  --trend-up: 122 39% 49%;
+  --trend-down: 0 85% 58%;
+  --trend-neutral: 0 0% 62%;
+  
+  /* Chart colors */
+  --chart-1: var(--card-pokemon);
+  --chart-2: var(--card-yugioh);
+  --chart-3: var(--card-tcg);
+  --chart-4: var(--card-topps);
+  --chart-5: 0 0% 50%;
+  
+  /* Sidebar specific colors */
+  --sidebar-background: var(--telegram-sidebar);
+  --sidebar-foreground: 0 0% 100%;
+  --sidebar-primary: var(--telegram-blue);
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 210 30% 25%;
+  --sidebar-accent-foreground: 0 0% 90%;
+  --sidebar-border: 210 40% 25%;
+  --sidebar-ring: 210 40% 40%;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 200 90% 40%;
+  --primary-foreground: 211 100% 99%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 240 3.7% 15.9%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-telegram-bg text-foreground;
+  }
+}
+
+/* Animation for notification */
+.notification-enter {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.notification-enter-active {
+  transform: translateY(0);
+  opacity: 1;
+  transition: all 0.3s ease-out;
+}
+
+.notification-exit {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.notification-exit-active {
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.3s ease-in;
+}
+
+/* Loading skeleton animation */
+.loading-skeleton {
+  background: linear-gradient(90deg, hsl(var(--muted)) 25%, hsl(var(--muted)/0.5) 50%, hsl(var(--muted)) 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Custom card styles */
+.card-pokemon {
+  @apply bg-card-pokemon text-white;
+}
+
+.card-yugioh {
+  @apply bg-card-yugioh text-white;
+}
+
+.card-tcg {
+  @apply bg-card-tcg text-white;
+}
+
+.card-topps {
+  @apply bg-card-topps text-white;
+}
+
+/* Trend styles */
+.trend-up {
+  @apply text-trend-up;
+}
+
+.trend-down {
+  @apply text-trend-down;
+}
+
+.trend-neutral {
+  @apply text-trend-neutral;
+}
