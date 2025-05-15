@@ -7,7 +7,7 @@ export class CardBot {
   private initialized: boolean = false;
 
   constructor() {
-    const token = process.env.TELEGRAM_BOT_TOKEN;
+    const token = process.env.7735096092:AAFedR-bOOi7L-N54C5XyShBnrIN2bsPiCg;
     const isDevelopment = process.env.NODE_ENV === 'development';
     
     if (!token) {
